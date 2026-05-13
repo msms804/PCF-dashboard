@@ -1,0 +1,76 @@
+import { Activity, EmissionFactor } from "../types";
+
+export const emissionFactors: EmissionFactor[] = [
+  {
+    id: "ef1",
+    activityType: "electricity",
+    description: "한국전력",
+    coefficient: 0.456,
+    unit: "kgCO2e/kWh",
+    version: 1,
+    effectiveFrom: "2025-01-01",
+  },
+  {
+    id: "ef2",
+    activityType: "raw_material",
+    description: "플라스틱 1",
+    coefficient: 2.3,
+    unit: "kgCO2e/kg",
+    version: 1,
+    effectiveFrom: "2025-01-01",
+  },
+  {
+    id: "ef3",
+    activityType: "raw_material",
+    description: "플라스틱 2",
+    coefficient: 3.2,
+    unit: "kgCO2e/kg",
+    version: 1,
+    effectiveFrom: "2025-01-01",
+  },
+  {
+    id: "ef4",
+    activityType: "transport",
+    description: "트럭",
+    coefficient: 3.5,
+    unit: "kgCO2e/ton-km",
+    version: 1,
+    effectiveFrom: "2025-01-01",
+  },
+];
+
+export const activities: Activity[] = [
+  // 전기
+  { id: "a1",  date: "2025-01-01", activityType: "electricity",  description: "한국전력", amount: 110, unit: "kWh" },
+  { id: "a2",  date: "2025-02-01", activityType: "electricity",  description: "한국전력", amount: 112, unit: "kWh" },
+  { id: "a3",  date: "2025-03-01", activityType: "electricity",  description: "한국전력", amount: 115, unit: "kWh" },
+  { id: "a4",  date: "2025-04-01", activityType: "electricity",  description: "한국전력", amount: 130, unit: "kWh" },
+  { id: "a5",  date: "2025-05-01", activityType: "electricity",  description: "한국전력", amount: 120, unit: "kWh" },
+  { id: "a6",  date: "2025-06-01", activityType: "electricity",  description: "한국전력", amount: 110, unit: "kWh" },
+  { id: "a7",  date: "2025-07-01", activityType: "electricity",  description: "한국전력", amount: 120, unit: "kWh" },
+  { id: "a8",  date: "2025-08-01", activityType: "electricity",  description: "한국전력", amount: 111, unit: "kWh" },
+  { id: "a9",  date: "2025-05-01", activityType: "electricity",  description: "한국전력", amount: 101, unit: "kWh" },
+  // 원소재
+  { id: "a10", date: "2025-01-01", activityType: "raw_material", description: "플라스틱 1", amount: 230, unit: "kg" },
+  { id: "a11", date: "2025-02-01", activityType: "raw_material", description: "플라스틱 1", amount: 340, unit: "kg" },
+  { id: "a12", date: "2025-03-01", activityType: "raw_material", description: "플라스틱 2", amount: 23,  unit: "kg" },
+  { id: "a13", date: "2025-03-01", activityType: "raw_material", description: "플라스틱 1", amount: 430, unit: "kg" },
+  { id: "a14", date: "2025-04-01", activityType: "raw_material", description: "플라스틱 1", amount: 510, unit: "kg" },
+  { id: "a15", date: "2025-05-01", activityType: "raw_material", description: "플라스틱 1", amount: 424, unit: "kg" },
+  { id: "a16", date: "2025-05-01", activityType: "raw_material", description: "플라스틱 2", amount: 40,  unit: "kg" },
+  { id: "a17", date: "2025-06-01", activityType: "raw_material", description: "플라스틱 1", amount: 450, unit: "kg" },
+  { id: "a18", date: "2025-07-01", activityType: "raw_material", description: "플라스틱 1", amount: 340, unit: "kg" },
+  { id: "a19", date: "2025-07-01", activityType: "raw_material", description: "플라스틱 2", amount: 43,  unit: "kg" },
+  { id: "a20", date: "2025-08-01", activityType: "raw_material", description: "플라스틱 1", amount: 230, unit: "kg" },
+  { id: "a21", date: "2025-05-01", activityType: "raw_material", description: "플라스틱 1", amount: 232, unit: "kg" },
+  // 운송
+  { id: "a22", date: "2025-01-01", activityType: "transport", description: "트럭", amount: 41,  unit: "ton-km" },
+  { id: "a23", date: "2025-02-01", activityType: "transport", description: "트럭", amount: 211, unit: "ton-km" },
+  { id: "a24", date: "2025-03-01", activityType: "transport", description: "트럭", amount: 123, unit: "ton-km" },
+  { id: "a25", date: "2025-04-01", activityType: "transport", description: "트럭", amount: 42,  unit: "ton-km" },
+  { id: "a26", date: "2025-05-01", activityType: "transport", description: "트럭", amount: 123, unit: "ton-km" },
+  { id: "a27", date: "2025-06-01", activityType: "transport", description: "트럭", amount: 123, unit: "ton-km" },
+  { id: "a28", date: "2025-07-01", activityType: "transport", description: "트럭", amount: 41,  unit: "ton-km" },
+  { id: "a29", date: "2025-08-01", activityType: "transport", description: "트럭", amount: 123, unit: "ton-km" },
+  { id: "a30", date: "2025-05-01", activityType: "transport", description: "트럭", amount: 12,  unit: "ton-km" },
+];

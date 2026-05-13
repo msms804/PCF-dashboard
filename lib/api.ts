@@ -80,3 +80,53 @@ export async function fetchKpiSummary(): Promise<KpiSummary> {
     topEmitter: { description: top.description, co2e: getCo2e(top, factors) },
   };
 }
+
+export type ChartData = {
+  trend: { yearMonth: string; co2e: number }[];
+  byType: { type: string; co2e: number }[];
+  byScope: { scope: string; co2e: number }[];
+};
+
+export async function fetchChartData(): Promise<ChartData> {
+  await delay(jitter());
+
+  const factors = emissionFactorStore;
+
+  const monthMap = new Map<string, number>();
+  const typeMap = new Map<string, number>();
+  const scopeMap = new Map<string, number>();
+
+  for (const a of activityStore) {
+    const co2e = getCo2e(a, factors);
+    const ym = a.date.slice(0, 7);
+
+    monthMap.set(ym, (monthMap.get(ym) ?? 0) + co2e); // 해당 월이 이미 있으면 기존값, 없으면 0에서 시작 , 거기에 이번 activity의 CO2e
+    typeMap.set(a.activityType, (typeMap.get(a.activityType) ?? 0) + co2e);
+
+    const scope = a.activityType === "electricity" ? "Scope 2" : "Scope 3";
+    scopeMap.set(scope, (scopeMap.get(scope) ?? 0) + co2e);
+  }
+
+  // 월별 데이터를 날짜 오름차순 정렬
+  const trend = Array.from(monthMap.entries())
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([yearMonth, co2e]) => ({ yearMonth, co2e: Math.round(co2e * 100) / 100 }));
+
+  const typeLabels: Record<string, string> = {
+    electricity: "전기",
+    raw_material: "원소재",
+    transport: "운송",
+  };
+
+  const byType = Array.from(typeMap.entries()).map(([type, co2e]) => ({
+    type: typeLabels[type] ?? type,
+    co2e: Math.round(co2e * 100) / 100,
+  }));
+
+  const byScope = Array.from(scopeMap.entries()).map(([scope, co2e]) => ({
+    scope,
+    co2e: Math.round(co2e * 100) / 100,
+  }));
+
+  return { trend, byType, byScope };
+}

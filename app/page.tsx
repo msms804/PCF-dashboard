@@ -22,7 +22,7 @@ export default async function DashboardPage() {
         <p className="text-sm text-gray-500 mt-1">탄소 배출 현황을 한눈에 확인하세요</p>
       </div>
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <KpiCard
           label="총 CO₂e 배출량"
           value={kpi.totalCo2e.toLocaleString()}
@@ -41,8 +41,8 @@ export default async function DashboardPage() {
         />
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
-        <div className="col-span-2 bg-white rounded-xl border border-gray-200 p-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="md:col-span-2 bg-white rounded-xl border border-gray-200 p-6">
           <p className="text-sm font-medium text-gray-700 mb-4">월별 CO₂e 배출 추이</p>
           <TrendChart data={chartData.trend} />
         </div>

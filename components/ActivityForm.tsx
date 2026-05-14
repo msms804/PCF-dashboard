@@ -110,7 +110,7 @@ export default function ActivityForm() {
       <form onSubmit={handleSubmit} className="bg-white rounded-xl border border-gray-200 p-6">
         <h2 className="text-sm font-medium text-gray-700 mb-4">새 활동 데이터 추가</h2>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="flex flex-col gap-1">
             <label className="text-xs text-gray-500">일자</label>
             <input

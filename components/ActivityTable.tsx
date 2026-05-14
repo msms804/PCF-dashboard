@@ -11,6 +11,8 @@ type Props = {
 };
 
 export default function ActivityTable({ data }: Props) {
+  const sorted = [...data].sort((a, b) => b.date.localeCompare(a.date));
+
   return (
     <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
       <table className="w-full text-sm">
@@ -25,7 +27,7 @@ export default function ActivityTable({ data }: Props) {
           </tr>
         </thead>
         <tbody>
-          {data.map((row) => (
+          {sorted.map((row) => (
             <tr key={row.id} className="border-b border-gray-100 last:border-0 hover:bg-gray-50">
               <td className="px-4 py-3 text-gray-700">{row.date}</td>
               <td className="px-4 py-3 text-gray-700">{typeLabels[row.activityType] ?? row.activityType}</td>

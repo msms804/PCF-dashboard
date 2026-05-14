@@ -8,10 +8,21 @@ const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 const jitter = () => 200 + Math.random() * 600; // 200~800ms 랜덤 지연
 const maybeFail = () => Math.random() < 0.15; // 15%확률로 실패
 
+export type ActivityWithCo2e = Activity & { co2e: number };
+
 // 전체 활동 데이터를 반환
 export async function fetchActivities(): Promise<Activity[]> {
   await delay(jitter());
   return activityStore;
+}
+
+// CO₂e 계산값 포함한 활동 데이터 반환
+export async function fetchActivitiesWithCo2e(): Promise<ActivityWithCo2e[]> {
+  await delay(jitter());
+  return activityStore.map((a) => ({
+    ...a,
+    co2e: getCo2e(a, emissionFactorStore),
+  }));
 }
 
 // 배출 계수 목록 반환
@@ -30,7 +41,7 @@ export async function createActivity(
   return created;
 }
 
-// 활동 하나를 받아서 CO₂e를 계산합니다.
+// 활동 하나를 받아서 CO₂e를 계산
 function getCo2e(activity: Activity, factors: EmissionFactor[]): number {
   const factor = factors.find(
     (f) => f.activityType === activity.activityType && f.description === activity.description
@@ -100,7 +111,7 @@ export async function fetchChartData(): Promise<ChartData> {
     const co2e = getCo2e(a, factors);
     const ym = a.date.slice(0, 7);
 
-    monthMap.set(ym, (monthMap.get(ym) ?? 0) + co2e); // 해당 월이 이미 있으면 기존값, 없으면 0에서 시작 , 거기에 이번 activity의 CO2e
+    monthMap.set(ym, (monthMap.get(ym) ?? 0) + co2e); // 해당 월이 이미 있으면 기존값, 없으면 0에서 시작 , 거기에 이번 activity의 CO2e 더함
     typeMap.set(a.activityType, (typeMap.get(a.activityType) ?? 0) + co2e);
 
     const scope = a.activityType === "electricity" ? "Scope 2" : "Scope 3";

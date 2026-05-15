@@ -2,7 +2,7 @@ import { Activity, EmissionFactor } from "./types";
 import { activities, emissionFactors } from "./data/seed";
 
 let activityStore = [...activities];
-let emissionFactorStore = [...emissionFactors];
+const emissionFactorStore = [...emissionFactors];
 
 const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 const jitter = () => 200 + Math.random() * 600; // 200~800ms 랜덤 지연

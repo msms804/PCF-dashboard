@@ -36,6 +36,36 @@ npm run dev
 
 ---
 
+## ERD
+
+```mermaid
+erDiagram
+    EmissionFactor {
+        string id PK
+        string activityType
+        string description
+        float coefficient
+        string unit
+        int version
+        string effectiveFrom
+    }
+
+    Activity {
+        string id PK
+        string date
+        string activityType
+        string description
+        float amount
+        string unit
+    }
+
+    Activity }o--|| EmissionFactor : "activityType + description 매칭"
+```
+
+> 배출계수는 `version`과 `effectiveFrom`으로 이력을 추적합니다.
+
+---
+
 ## 아키텍처 개요
 
 ```

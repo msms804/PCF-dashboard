@@ -4,6 +4,26 @@
 
 ---
 
+## 실행 화면
+
+**대시보드**
+
+https://github.com/user-attachments/assets/74530abd-802b-41f5-89ee-610532fff8a6
+
+**활동 데이터 입력**
+
+https://github.com/user-attachments/assets/c919ce73-de06-4f82-b01e-7ce062244ac7
+
+**Excel 임포트**
+
+https://github.com/user-attachments/assets/6c9c8e32-d778-49cb-a3eb-680e3824ef40
+
+**배출계수 버전 이력**
+
+<img width="600" alt="배출계수 버전 이력" src="https://github.com/user-attachments/assets/7924b931-0857-4a9c-84d1-fd8604e8c1ce" />
+
+---
+
 ## 실행 방법
 
 ```bash

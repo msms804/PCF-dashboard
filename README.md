@@ -6,21 +6,24 @@
 
 ## 실행 화면
 
-**대시보드**
-
-https://github.com/user-attachments/assets/74530abd-802b-41f5-89ee-610532fff8a6
-
-**활동 데이터 입력**
-
-https://github.com/user-attachments/assets/c919ce73-de06-4f82-b01e-7ce062244ac7
-
-**Excel 임포트**
-
-https://github.com/user-attachments/assets/6c9c8e32-d778-49cb-a3eb-680e3824ef40
-
-**배출계수 버전 이력**
-
-<img width="600" alt="배출계수 버전 이력" src="https://github.com/user-attachments/assets/7924b931-0857-4a9c-84d1-fd8604e8c1ce" />
+<table>
+  <tr>
+    <td align="center"><b>대시보드</b></td>
+    <td align="center"><b>활동 데이터 입력</b></td>
+  </tr>
+  <tr>
+    <td><video src="https://github.com/user-attachments/assets/74530abd-802b-41f5-89ee-610532fff8a6" width="400" controls></video></td>
+    <td><video src="https://github.com/user-attachments/assets/c919ce73-de06-4f82-b01e-7ce062244ac7" width="400" controls></video></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Excel 임포트</b></td>
+    <td align="center"><b>배출계수 버전 이력</b></td>
+  </tr>
+  <tr>
+    <td><video src="https://github.com/user-attachments/assets/6c9c8e32-d778-49cb-a3eb-680e3824ef40" width="400" controls></video></td>
+    <td><img src="https://github.com/user-attachments/assets/7924b931-0857-4a9c-84d1-fd8604e8c1ce" width="400" /></td>
+  </tr>
+</table>
 
 ---
 

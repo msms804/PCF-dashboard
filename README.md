@@ -2,6 +2,8 @@
 
 탄소 배출(PCF) 전과정 데이터를 시각화하는 인터랙티브 대시보드입니다.
 
+**배포 링크:** https://pcf-dashboard-ms.vercel.app
+
 ---
 
 ## 실행 화면
